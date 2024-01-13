@@ -22,8 +22,7 @@ return {
       local extension_path = codelldb:get_install_path() .. "/extension/"
       local codelldb_path = extension_path .. "adapter/codelldb"
       local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
-
-      local rt = require("rust-tools")
+      
       rt.setup({
         dap = {
           adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
@@ -45,6 +44,8 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
+  },
+  {
     "rcarriga/nvim-dap-ui",
     config = function()
       require("dapui").setup()
@@ -60,10 +61,11 @@ return {
         dapui.close()
       end
       
-      vim.keymap.set('n', '<leader>dt', ':DapToggleBreakpoint<CR>', {})
-      vim.keymap.set('n', '<leader>dx', ':DapTerminate<CR>', {})
-      vim.keymap.set('n', '<leader>do', ':DapStepOver<CR>', {})
-    end
+      -- vim.keymap.set('n', '<leader>dt', ':DapToggleBreakpoint<CR>', {})
+      -- vim.keymap.set('n', '<leader>dx', ':DapTerminate<CR>', {})
+      -- vim.keymap.set('n', '<leader>do', ':DapStepOver<CR>', {})
+    end,
+    lazy = false
   },
   {
     "saecki/crates.nvim",
