@@ -11,10 +11,66 @@ local plugins = {
     end,
   },
   {
+    "mfussenegger/nvim-dap",
+    config = function(_, opts)
+      require("core.utils").load_mappings("dap")
+    end
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    config = function()
+      require("dapui").setup()
+
+      local dap, dapui = require("dap"), require("dapui")
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
+      
+      -- vim.keymap.set('n', '<leader>dt', ':DapToggleBreakpoint<CR>', {})
+      -- vim.keymap.set('n', '<leader>dx', ':DapTerminate<CR>', {})
+      -- vim.keymap.set('n', '<leader>do', ':DapStepOver<CR>', {})
+    end,
+    lazy = false
+  },
+  {
+    "mfussenegger/nvim-dap-python",
+    ft = "python",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+    },
+    config = function(_, opts)
+      local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+      require("dap-python").setup(path)
+      require("core.utils").load_mappings("dap_python")
+    end,
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    ft = {
+      "rust",
+      "python"
+    },
+    opts = function()
+      return require "custom.configs.null-ls"
+    end,
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "rust-analyzer"
+        "rust-analyzer",
+        "pyright",
+        "black",
+        "debugpy",
+        "mypy",
+        "ruff",
       },
     },
   },
@@ -40,8 +96,5 @@ local plugins = {
     end,
     lazy = false
   },
-
-
 }
-
 return plugins
