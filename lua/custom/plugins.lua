@@ -11,6 +11,17 @@ local plugins = {
     end,
   },
   {
+    "jay-babu/mason-nvim-dap.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      handlers = {}
+    },
+  },
+  {
     "mfussenegger/nvim-dap",
     config = function(_, opts)
       require("core.utils").load_mappings("dap")
@@ -18,6 +29,8 @@ local plugins = {
   },
   {
     "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
+    dependencies = "mfussenegger/nvim-dap",
     config = function()
       require("dapui").setup()
 
@@ -71,6 +84,9 @@ local plugins = {
         "debugpy",
         "mypy",
         "ruff",
+        "clangd",
+        "clang-format",
+        "codelldb",
       },
     },
   },

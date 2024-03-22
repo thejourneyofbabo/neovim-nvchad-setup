@@ -10,10 +10,15 @@ M.general = {
 }
 
 M.dap = {
+  plugin = true,
   n = {
     ["<leader>db"] = {
       "<cmd> DapToggleBreakpoint <CR>",
       "Toggle breakpoint"
+    },
+    ["<leader>dr"] = {
+      "<cmd> DapContinue <CR>",
+      "Start or continue the debugger",
     },
     ["<leader>dus"] = {
       function ()
