@@ -78,7 +78,7 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "rust-analyzer",
+        --"rust-analyzer",
         "pyright",
         "black",
         "debugpy",
