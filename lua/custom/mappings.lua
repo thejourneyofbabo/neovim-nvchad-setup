@@ -8,6 +8,9 @@ M.general = {
     ["C-k"] = {"<cmd> TmuxNvigateUp<CR>", "window up"},
     ["<LEADER>jd"] = {"<cmd>lua require'telescope.builtin'.lsp_definitions()<CR>", "LSP definitions"},
     ["<LEADER>jv"] = {"<cmd>lua require'telescope.builtin'.lsp_definitions({jump_type='vsplit'})<CR>", "LSP definitions (vsplit)"},
+    ["gd"] = {"<cmd>lua vim.lsp.buf.definition()<CR>", "LSP definition"},
+    ["gdv"] = {"<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", "LSP definition (vertical split)"},
+    ["gdh"] = {"<cmd>belowright split | lua vim.lsp.buf.definition()<CR>", "LSP definition (horizontal split)"},
   }
 }
 
