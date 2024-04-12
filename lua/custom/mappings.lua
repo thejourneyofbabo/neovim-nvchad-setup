@@ -6,6 +6,8 @@ M.general = {
     ["C-l"] = {"<cmd> TmuxNvigateRight<CR>", "window right"},
     ["C-j"] = {"<cmd> TmuxNvigateDown<CR>", "window down"},
     ["C-k"] = {"<cmd> TmuxNvigateUp<CR>", "window up"},
+    ["<LEADER>jd"] = {"<cmd>lua require'telescope.builtin'.lsp_definitions()<CR>", "LSP definitions"},
+    ["<LEADER>jv"] = {"<cmd>lua require'telescope.builtin'.lsp_definitions({jump_type='vsplit'})<CR>", "LSP definitions (vsplit)"},
   }
 }
 
