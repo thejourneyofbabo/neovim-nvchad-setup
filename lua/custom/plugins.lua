@@ -88,6 +88,7 @@ local plugins = {
     opts = {
       ensure_installed = {
         --"rust-analyzer",
+        "lua-language-server",
         "pyright",
         "black",
         "debugpy",
