@@ -1,5 +1,14 @@
 local plugins = {
   {
+    'rmagatti/goto-preview',
+    lazy = false,
+    config = function()
+      require('goto-preview').setup{
+        default_mappings = true
+      }
+    end
+  },
+  {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
