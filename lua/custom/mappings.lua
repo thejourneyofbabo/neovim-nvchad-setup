@@ -32,6 +32,10 @@ M.dap = {
         sidebar.open();
       end,
       "Open debugging sidebar"
+    },
+    ["<leader>dx"] = {
+      "<cmd>DapTerminate<CR>",
+      "Terminate debugger"
     }
   }
 }
@@ -58,5 +62,11 @@ M.crates = {
   }
 }
 
+M.rust_map = {
+  n = {
+    ["<leader>k"] = {"<Cmd>lua require('rust-tools').hover_actions.hover_actions()<CR>", "Rust Run"},
+    ["<leader>q"] = {"<Cmd>lua require('rust-tools').code_action_group.code_action_group()<CR>", "Rust Suggest"},
+  }
+}
 
 return M
