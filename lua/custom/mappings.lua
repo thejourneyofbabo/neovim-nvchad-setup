@@ -11,6 +11,10 @@ M.general = {
     ["gd"] = {"<cmd>lua vim.lsp.buf.definition()<CR>", "LSP definition"},
     ["gdv"] = {"<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", "LSP definition (vertical split)"},
     ["gdh"] = {"<cmd>belowright split | lua vim.lsp.buf.definition()<CR>", "LSP definition (horizontal split)"},
+
+    -- Move the cursor up or down by 5 lines
+    ["<leader>lj"] = {"7j", "Move cursor up by 5 lines"},
+    ["<leader>lk"] = {"7k", "Move cursor down by 5 lines"},
   }
 }
 
