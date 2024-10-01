@@ -79,6 +79,7 @@ local plugins = {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
+    event = "VeryLazy",
     ft = {
       "rust",
       "python"
